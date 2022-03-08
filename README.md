@@ -31,13 +31,15 @@ a) Create a free mongodb database
 b) Get the access credentials
 
 3) Go to [Confluent Cloud](https://www.confluent.io) and create a Kafka service
-a) Create a free Kafka stream service b) Add a topic named 'orderevents'
+
+a) Create a free Kafka stream service
+b) Add a topic named 'orderevents'
 c) Add a topic named 'paymentevents'![Confluent Kafka](/images/heroku-02-kafka.png)
 d) Get access credentials to Confluent Cloud
 
 4) Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and login `heroku container:login`
 
-**Creating Microservices 'Order' using DevPrime CLI**
+**Creating Microservices 'Order' using DevPrime CLI** 
 We will use the [DevPrime CLI](../../../getting-started/creating-the-first-microservice/) for creating the microservices.
 
 - Creating the microservice
