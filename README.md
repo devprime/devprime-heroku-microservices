@@ -19,7 +19,7 @@ O Heroku oferece uma plataforma de cloud para publicação de aplicações e nó
 a) Crie um novo aplicativo e guarde o nome <app-name1>.
 b) Crie um segundo aplicativo e guarde o nome <app-name2>.
 
-![Heroku Apps](/images/heroku/heroku-01-app.png)
+![Heroku Apps](/images/heroku-01-app.png)
 c) Obtenha o token de acesso em "[API KEY](https://dashboard.heroku.com/account)"
 
 **2) Acesse o [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)**
@@ -30,7 +30,7 @@ b) Obtenha as credenciais de acesso
 a) Crie um serviço de stream Kafka gratuito
 b) Adicione o tópico com o nome 'orderevents'
 c) Adicione um tópico com o nome 'paymentevents'
-![Confluent Kafka](/images/heroku/heroku-02-kafka.png)
+![Confluent Kafka](/images/heroku-02-kafka.png)
 d) Obtenha as credenciais de acesso ao Confluent Cloud
 
 
@@ -88,7 +88,7 @@ d) Agora criaremos as variáveis de ambiente 'Config Vars' no Heroku
 **Configurações 'Config Vars' do seu app-name1 no Heroku**
 [Portal](https://heroku.com) -> App -> Settings -> Config Vars
 
-![Config Vars](/images/heroku/heroku-03-configvars.png)
+![Config Vars](/images/heroku-03-configvars.png)
 
 **Compilação e publicação da imagem docker**
 a) Antes de executar o comando altere o `<app-name>`
@@ -98,7 +98,7 @@ a) Antes de executar o comando altere o `<app-name>`
 `heroku container:release web --app <app-name>`
 
 Nesse momento você já pode visualizar no portal o microsserviço
-![Heroku Apps](/images/heroku/heroku-04-run-dp-order.png)
+![Heroku Apps](/images/heroku-04-run-dp-order.png)
 
 **Acessando a url pública do projeto**
 `heroku open`
@@ -199,7 +199,7 @@ a) Antes de executar o comando altere o `<app-name>`
 - Alteração para release
 `heroku container:release web --app <app-name>`
 
-![Heroku Apps](/images/heroku/heroku-04-run-dp-payment.png)
+![Heroku Apps](/images/heroku-04-run-dp-payment.png)
 
 **Passos opcionais para parar serviços ou visualizar os processos**
 a) Antes de executar o comando altere o `<app-name>`
