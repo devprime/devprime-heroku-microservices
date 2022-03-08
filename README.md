@@ -120,7 +120,7 @@ c) No item State adicione as credenciais do MongoDB
 d) No item Stream adicione as credenciais do Kafka
 e) Inclua no subscribe a queues 'orderevents'.
 
-```
+```json
 "DevPrime_Stream": [
     {
       "Alias": "Stream1",
@@ -154,7 +154,7 @@ public class OrderCreatedEventDTO
 a) Abra a configuração do Event Stream
 `code .\src\Adapters\Stream\EventStream.cs`
 b) Altere a implementação no Subscribe
-```
+```csharp
     public override void StreamEvents()
     {
         Subscribe<IPaymentService>("Stream1", "OrderCreated", (payload, paymentService, Dp) =>
