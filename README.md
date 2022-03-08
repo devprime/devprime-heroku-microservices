@@ -1,129 +1,98 @@
 # Microservices on Heroku using DevPrime, MongoDB Atlas and Confluent Cloud Kafka
---
 
-O Heroku oferece uma plataforma de cloud para publicação de aplicações e nós estaremos desenvolvendo dois microsserviços utilizando a plataforma DevPrime, MongoDB e Kafka e [comunicação assíncrona](../../how-to/asynchronous-microservices-communication/).
+\--
 
-**Itens necessários em seu ambiente**
-- Instale o .NET SDK 6 ou superior
+Heroku provides a cloud platform for publishing applications and we will be developing two microservices using the DevPrime platform, MongoDB and Kafka and [asynchronous communication](../../how-to/asynchronous-microservices-communication/).
+
+**Items needed in your environment**
+
+- Install the .NET SDK 6 or higher
 - Visual Studio Code
-- Uma conta ativa no [Heroku](https://heroku.com)
-- Uma conta ativa na plataforma [DevPrime](https:/devprime.io) e licença de uso Developer ou Enterprise.
-- Uma conta no [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-- Uma conta no [Confluent Cloud](https://www.confluent.io)
-- [DevPrime CLI](../../../getting-started/) instalado e ativo (`dp auth`)
-- Docker local ativo + GIT
-- Powershell ou Bash
+- A live [Heroku](https://heroku.com)account
+- An active [DevPrime](https:/devprime.io) account and Developer or Enterprise license
+- A [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)account
+- One account on [Confluent Cloud](https://www.confluent.io)
+- [DevPrime CLI](../../../getting-started/) installed and active`(dp auth`)
+- Active local Docker + GIT
+- Powershell or Bash
 
-**Criação de acessos e obtenção de credenciais**
+**Creating access and getting credentials**
 
-**1) Acesse o [Heroku](http://heroku.com)**
+**1) Log into [Heroku](http://heroku.com)**
 
-a) Crie um novo aplicativo e guarde o nome <app-name1>.
+a) Create a new application and save the name .
 
-b) Crie um segundo aplicativo e guarde o nome <app-name2>.
+b) Create a second application and save the name .
 
 ![Heroku Apps](/images/heroku-01-app.png)
- 
-c) Obtenha o token de acesso em "[API KEY](https://dashboard.heroku.com/account)"
 
-**2) Acesse o [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)** <br/>
-a) Crie um banco de dados mongodb gratuito
-<br/>
-b) Obtenha as credenciais de acesso
+c) Get the access token from["API KEY](https://dashboard.heroku.com/account)
 
-**3) Acesse o [Confluent Cloud](https://www.confluent.io) e crie um serviço Kafka**
-a) Crie um serviço de stream Kafka gratuito
-b) Adicione o tópico com o nome 'orderevents'
-c) Adicione um tópico com o nome 'paymentevents'
-![Confluent Kafka](/images/heroku-02-kafka.png)
-d) Obtenha as credenciais de acesso ao Confluent Cloud
+**2** ) Access** [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)**  
+a) Create a free mongodb database  
+b) Get the access credentials
 
+**3) Go to [Confluent Cloud](https://www.confluent.io)**and create a Kafka service a) Create a free Kafka stream service b) Add a topic named 'orderevents' c) Add a topic named 'paymentevents'![Confluent Kafka](/images/heroku-02-kafka.png)d) Get access credentials to Confluent Cloud
 
-**4) Instale o [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) e efetue o login**
-`heroku container:login`
+**4) Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)**and login`heroku container:login`
 
-**Criando o Microservices 'Order' utilizando DevPrime CLI**
-Nós utilizaremos o [DevPrime CLI](../../../getting-started/creating-the-first-microservice/) para a criação dos microserviços.
+**Creating Microservices 'Order' using DevPrime CLI**We will use the [DevPrime CLI](../../../getting-started/creating-the-first-microservice/) for creating the microservices.
 
-- Criando o microsserviço
-`dp new dp-order --stream kafka --state mongodb`
-Entre na pasta dp-order para visualizar o microsserviço
-- Adicionando regras negócio
+- Creating the microservice
+
+`dp new dp-order --stream kafka --state mongodb`Enter the dp-order folder to view the microservice
+
+- Adding business rules
+
 `dp marketplace order`
-- Acelerando as implementações 
+
+- Speeding up implementations
+
 `dp init`
 
-**Aletere as configurações adicionando as credenciais MongoDB / Kafka**
-a) Na pasta do projeto abra o arquivo de configuração
-`code .\src\App\appsettings.json`
-b) No item State adicione as credenciais do MongoDB
-c) No item Stream adicione as credenciais do Kafka
+**Change the configurations by adding the MongoDB / Kafka credentials**a) In the project folder open the configuration file`code .esrc\App\appsettings.json`b) In the State item add the MongoDB credentials c) In the Stream item add the Kafka credentials
 
-**Execute o Microservices localmente.**
-`.\run.ps1 ou ./run.sh (Linux, MacOS)`
+**Run Microservices locally.**`./run.ps1 or ./run.sh (Linux, MacOS)`
 
-**Faça um post de teste**
-a) Abra o navegador web em http://localhost:5000 ou httsp://localhost:5001
-b) Clique em post e depois em 'Try it out'
-c) Colocque os dados e envie
+**Make a test post**a) Open the web browser at <http://localhost:5000> or httsp\://localhost:5001 b) Click post and then 'Try it out' c) Put in the data and submit
 
-Se tudo correu bem até aqui então já pode avançar com restante da configuração e publicação no ambiente da Heroku.
+If everything has gone well so far then you can proceed with the rest of the setup and publishing in the Heroku environment.
 
-**Adequando o dockerfile do projeto para suporte ao Heroku**
-a) Localizar e remover a linha abaixo
-`ENTRYPOINT ["dotnet", "App.dll"]`
-b) Adicionar a linha abaixo ao final
-`CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll`
+**Fitting the project dockerfile for Heroku support**a) Find and remove the line below`ENTRYPOINT ["dotnet", "App.dll"]`b) Add the line below to the end`CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll`
 
-**Exporte as configurações**
-dp export heroku
-![Microservices devprime heroku](/images/cli/devprime-cli-dp-export-heroku.png)
+**Export the settings**dp export heroku![Microservices devprime heroku](/images/cli/devprime-cli-dp-export-heroku.png)
 
-**Publicando as configurações no Heroku**
-a) Localize e abra o arquivo criado
-`code .\.devprime\heroku\instructions.txt`
-b) Localize a tag `<app-name>` e substitua pelo nome do seu app-name1
-c) Localize a tag `<token>` e substitua o token de acesso ao Heroku
-d) Agora criaremos as variáveis de ambiente 'Config Vars' no Heroku
-- Copie o comando curl no alterado nos passos anteriores
-- Execulte na linha de comando. 
-- Observe a diferença do curl no Windows Command, Powershell, Linux.
-`curl -X PATCH https://api.heroku.com/apps/<app-name>/config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer <token>" -d @.\.devprime\heroku\heroku.json`
+**Publishing the settings to Heroku**a) Locate and open the created file`code .dp.devprimeherokuinstructions.txt`b) Locate the ``tag and replace it with your app-name1 c) Locate the ``tag and replace it with the Heroku access token d) Now we will create the 'Config Vars' environment variables on Heroku
 
-**Configurações 'Config Vars' do seu app-name1 no Heroku**
-[Portal](https://heroku.com) -> App -> Settings -> Config Vars
+- Copy the curl command in the one changed in the previous steps
+- Run it on the command line.
+- Note the difference of curl in Windows Command, Powershell, Linux.
+
+`curl -X PATCH https://api.heroku.com/apps//config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer " -d @.\.devprimeherokuheroku.json`
+
+**Config Vars' settings of your app-name1 in the Heroku**[Portal](https://heroku.com) -> App -> Settings -> Config Vars
 
 ![Config Vars](/images/heroku-03-configvars.png)
 
-**Compilação e publicação da imagem docker**
-a) Antes de executar o comando altere o `<app-name>`
-- Compilação e envio
-`heroku container:push web --app <app-name>`
-- Alteração para release
-`heroku container:release web --app <app-name>`
+**Compiling and publishing the docker image**a) Before running the command change the``
 
-Nesse momento você já pode visualizar no portal o microsserviço
-![Heroku Apps](/images/heroku-04-run-dp-order.png)
+- Compiling and sending
 
-**Acessando a url pública do projeto**
-`heroku open`
+`heroku container:push web --app`
 
-**Visualizando o Log do microsserviço app-name1**
-a) Antes de executar o comando altere o `<app-name>`
-`heroku logs --tail --app <app-name>`
+- Change to release
 
-**Criando um novo microsserviço de payment'**
-O processo abaixo acelera a criação e já executa o 'dp init'
-`dp new dp-payment --state mongodb --stream kafka --marketplace payment --init`
- Ao final entre na pasta dp-payment
+`heroku container:release web --app`
 
-**Aletere as configurações e credenciais**
-a) Na pasta do projeto abra o arquivo de configuração
-`code .\src\App\appsettings.json`
-b) Altere as portas o item DevPrime_Web para 'https://localhost:5002;http://localhost:5003'
-c) No item State adicione as credenciais do MongoDB
-d) No item Stream adicione as credenciais do Kafka
-e) Inclua no subscribe a queues 'orderevents'.
+At this point you can already view the microservice in the portal![Heroku Apps](/images/heroku-04-run-dp-order.png)
+
+**Accessing the public url of the**heroku`open`**project**
+
+**Viewing the microservice log app-name1**a) Before running the command change the ```heroku logs --tail --app`
+
+**Creating a new payment microservice'**The process below speeds up the creation and already runs the 'dp init'`dp new dp-payment --state mongodb --stream kafka --marketplace payment --init`At the end enter the dp-payment folder
+
+Change**the settings and credentials**a) In the project folder open the configuration file`code .esrc\App\appsettings.json`b) Change the ports in the DevPrime_Web item to['https://localhost:5002;http://localhost:5003'](https://localhost:5002;http://localhost:5003) c) In the State item add the MongoDB credentials d) In the Stream item add the Kafka credentials e) Include in subscribe the queues 'orderevents'.
 
 ```json
 "DevPrime_Stream": [
@@ -142,11 +111,8 @@ e) Inclua no subscribe a queues 'orderevents'.
     }
   ],
 ```
-***Recebimento de eventos no adapter de Stream***
-a) Implementando um evento no Stream
-`dp add event OrderCreated -as PaymentService`
-b) Altere o DTO 'OrderCreatedEventDTO'
-`code .\src\Core\Application\Services\Payment\Model\OrderCreatedEventDTO.cs`
+
+***Receiving events in the Stream adapter***a) Implementing an event in the Stream`dp add event OrderCreated -as PaymentService`b) Change the DTO 'OrderCreatedEventDTO'`code .\src\CoreApplication\Services\Payment\Model\OrderCreatedEventDTO.cs`
 
 ```csharp
 public class OrderCreatedEventDTO                     
@@ -156,10 +122,9 @@ public class OrderCreatedEventDTO
     public double Value { get; set; }  
   }
 ```
-***Configurando o Subscribe no Stream***
-a) Abra a configuração do Event Stream
-`code .\src\Adapters\Stream\EventStream.cs`
-b) Altere a implementação no Subscribe
+
+***Configuring Subscribe in Stream***a) Open the Event Stream configuration`code .\src\Adapters\StreamEventStream.cs`b) Change the implementation in Subscribe
+
 ```csharp
     public override void StreamEvents()
     {
@@ -177,43 +142,35 @@ b) Altere a implementação no Subscribe
     }
 ```
 
-**Modifique a configuração no dockerfile do projeto**
-a) Localizar e remover a linha abaixo
-`ENTRYPOINT ["dotnet", "App.dll"]`
-b) Adicionar a linha abaixo
-`CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll`
+**Modify the configuration in the project dockerfile**a) Find and remove the line below`ENTRYPOINT ["dotnet", "App.dll"]`b) Add the line below`CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll`
 
-**Exporte as configurações**
-`dp export heroku`
+**Export the settings**`dp export heroku`
 
-**Publicando as configurações no Heroku**
-a) Localize e abra o arquivo criado
-`code .\.devprime\heroku\instructions.txt`
-b) Localize a tag `<app-name>` e substitua pelo nome do seu app-name2
-c) Localize a tag `<token>` e substitua o token de acesso ao Heroku
-d) Agora criaremos as variáveis de ambiente 'Config Vars' no Heroku
-- Copie o comando curl no alterado nos passos anteriores
-- Execulte na linha de comando. 
-- Observe a diferença do curl no Windows Command, Powershell, Linux.
-`curl -X PATCH https://api.heroku.com/apps/<app-name>/config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer <token>" -d @.\.devprime\heroku\heroku.json`
+**Publishing the settings to Heroku**a) Locate and open the created file`code .dp.devprimeherokuinstructions.txt`b) Locate the ``tag and replace it with your app-name2 c) Locate the ``tag and replace it with the Heroku access token d) Now we will create the 'Config Vars' environment variables on Heroku
 
+- Copy the curl command in the one changed in the previous steps
+- Run it on the command line.
+- Note the difference of curl in Windows Command, Powershell, Linux.
 
-**Compilação e publicação da imagem docker**
-a) Antes de executar o comando altere o `<app-name>`
-- Compilação e envio
-`heroku container:push web --app <app-name>`
-- Alteração para release
-`heroku container:release web --app <app-name>`
+`curl -X PATCH https://api.heroku.com/apps//config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer " -d @.\.devprimeherokuheroku.json`
+
+**Compiling and publishing the docker image**a) Before running the command change the``
+
+- Compiling and sending
+
+`heroku container:push web --app`
+
+- Change to release
+
+`heroku container:release web --app`
 
 ![Heroku Apps](/images/heroku-04-run-dp-payment.png)
 
-**Passos opcionais para parar serviços ou visualizar os processos**
-a) Antes de executar o comando altere o `<app-name>`
+**Optional steps to stop services or view processes**a) Before running the command change the``
 
-`heroku ps --app <app-name>`
-`heroku ps:stop web.1 --app <app-name>`
-`heroku ps:start web.1 --app <app-name>`
+` heroku ps --app  ``heroku ps:stop web.1 --`app `heroku ps:start web.1 --app <`app-name>
 
-**Considerações finais**
-- Durante essa jornada do Heroku nós desenvolvemos dois microsserviços.
-- Para automatizar em sua estratégia de devops utilize o GitHub Actions.
+**Final considerations**
+
+- During this Heroku journey we have developed two microservices.
+- To automate in your devops strategy use GitHub Actions.
