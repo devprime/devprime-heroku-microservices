@@ -1,7 +1,5 @@
 # Microservices on Heroku using DevPrime, MongoDB Atlas and Confluent Cloud Kafka
 
-\--
-
 Heroku provides a cloud platform for publishing applications and we will be developing two microservices using the DevPrime platform, MongoDB and Kafka and [asynchronous communication](../../how-to/asynchronous-microservices-communication/).
 
 **Items needed in your environment**
@@ -26,7 +24,7 @@ b) Create a second application and save the name .
 
 ![Heroku Apps](/images/heroku-01-app.png)
 
-c) Get the access token from["API KEY](https://dashboard.heroku.com/account)
+c) Get the access token from["API KEY](https://dashboard.heroku.com/account)`enter code here`
 
 2) Access [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) 
 a) Create a free mongodb database  
