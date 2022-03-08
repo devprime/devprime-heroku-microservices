@@ -98,9 +98,14 @@ dp export heroku
 ![Microservices devprime heroku](/images/cli/devprime-cli-dp-export-heroku.png)
 
 **Publishing the settings to Heroku**
-a) Locate and open the created file `code .dp.devprimeherokuinstructions.txt` 
+
+a) Locate and open the created file
+`code .\.devprime\heroku\instructions.txt`
+
 b) Locate the "<app-name>" tag and replace it with your app-name1 
+ 
 c) Locate the "<app-name>" tag and replace it with the Heroku access token 
+ 
 d) Now we will create the 'Config Vars' environment variables on Heroku
 
 - Copy the curl command in the one changed in the previous steps
