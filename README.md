@@ -115,6 +115,7 @@ d) Now we will create the 'Config Vars' environment variables on Heroku
 `curl -X PATCH https://api.heroku.com/apps/<app-name>/config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer <token>" -d @.\.devprime\heroku\heroku.json`
 
 **Config Vars' settings of your app-name1 in the Heroku**
+
 [Portal](https://heroku.com) -> App -> Settings -> Config Vars
 
 ![Config Vars](/images/heroku-03-configvars.png)
