@@ -16,10 +16,12 @@ O Heroku oferece uma plataforma de cloud para publicação de aplicações e nó
 **Criação de acessos e obtenção de credenciais**
 
 **1) Acesse o [Heroku](http://heroku.com)**
+
 a) Crie um novo aplicativo e guarde o nome <app-name1>.
 b) Crie um segundo aplicativo e guarde o nome <app-name2>.
-
-![Heroku Apps](/images/heroku-01-app.png)
+ 
+ ![Heroku Apps](/images/heroku-01-app.png)
+ 
 c) Obtenha o token de acesso em "[API KEY](https://dashboard.heroku.com/account)"
 
 **2) Acesse o [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)**
@@ -142,7 +144,8 @@ a) Implementando um evento no Stream
 `dp add event OrderCreated -as PaymentService`
 b) Altere o DTO 'OrderCreatedEventDTO'
 `code .\src\Core\Application\Services\Payment\Model\OrderCreatedEventDTO.cs`
-```
+
+```csharp
 public class OrderCreatedEventDTO                     
   {                                                     
     public Guid OrderID { get; set; }
