@@ -95,7 +95,7 @@ b) Add the line below to the end
 **Export the settings**
 dp export heroku
 
-![Microservices devprime heroku](/images/cli/devprime-cli-dp-export-heroku.png)
+![Microservices devprime heroku](/images/devprime-cli-dp-export-heroku.png)
 
 **Publishing the settings to Heroku**
 
