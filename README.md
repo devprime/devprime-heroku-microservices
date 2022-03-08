@@ -43,30 +43,42 @@ b) Get the access credentials
 
 4) Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and login `heroku container:login`
 
-**Creating Microservices 'Order' using DevPrime CLI** 
+**Creating Microservices 'Order' using DevPrime CLI**
+
 We will use the [DevPrime CLI](../../../getting-started/creating-the-first-microservice/) for creating the microservices.
 
 - Creating the microservice
+
 `dp new dp-order --stream kafka --state mongodb`Enter the dp-order folder to view the microservice
 
 - Adding business rules
+
 `dp marketplace order`
 
 - Speeding up implementations
+
 `dp init`
 
 **Change the configurations by adding the MongoDB / Kafka credentials**
+
 a) In the project folder open the configuration file
 `code .\src\App\appsettings.json`
+
 b) In the State item add the MongoDB credentials
+
 c) In the Stream item add the Kafka credentials
 
+
 **Run Microservices locally.**
+
 `./run.ps1 or ./run.sh (Linux, MacOS)`
 
 **Make a test post**
+
 a) Open the web browser at http://localhost:5000 or https://localhost:5001
+
 b) Click post and then 'Try it out'
+
 c) Put in the data and submit
 
 If everything has gone well so far then you can proceed with the rest of the setup and publishing in the Heroku environment.
@@ -75,8 +87,10 @@ If everything has gone well so far then you can proceed with the rest of the set
 
 a) Find and remove the line below 
 `ENTRYPOINT ["dotnet", "App.dll"]`
+
 b) Add the line below to the end 
 `CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll`
+
 
 **Export the settings**
 dp export heroku
