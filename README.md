@@ -26,10 +26,9 @@ b) Crie um segundo aplicativo e guarde o nome <app-name2>.
  
 c) Obtenha o token de acesso em "[API KEY](https://dashboard.heroku.com/account)"
 
-**2) Acesse o [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)**
-&nbsp;
+**2) Acesse o [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)** <br/>
 a) Crie um banco de dados mongodb gratuito
-&nbsp;
+<br/>
 b) Obtenha as credenciais de acesso
 
 **3) Acesse o [Confluent Cloud](https://www.confluent.io) e crie um serviço Kafka**
