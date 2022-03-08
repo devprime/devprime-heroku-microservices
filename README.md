@@ -35,6 +35,8 @@ b) Get the access credentials
 - Create a free Kafka stream service
 -  Add a topic named 'orderevents'
 -  Add a topic named 'paymentevents'
+
+
 ![Confluent Kafka](/images/heroku-02-kafka.png)
 
 -  Get access credentials to Confluent Cloud
