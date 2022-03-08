@@ -1,2 +1,2 @@
-# Microservices on Heroku using DevPrime, Atlas MongoDB and Confluent Kafka
+# Microservices on Heroku using DevPrime, MongoDB Atlas and Confluent Cloud Kafka
 
