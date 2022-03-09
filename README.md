@@ -42,7 +42,9 @@ Heroku provides a cloud platform for publishing applications and we will be deve
 
  **Important information:** </br>
 This article provides a complete example at the address below. </br>
-`git clone https://github.com/devprime/devprime-heroku-microservices` </br>
+```bash
+git clone https://github.com/devprime/devprime-heroku-microservices </br>
+```
 
 To use after cloning follow the steps: </br>
 - Enter the dp-order folder and type </br>
