@@ -225,10 +225,9 @@ public class OrderCreatedEventDTO
  
 `curl -X PATCH https://api.heroku.com/apps/<app-name>/config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer <token>" -d @.\.devprime\heroku\heroku.json`
 
-**Compiling and publishing the docker image**
-a) Before running the command change the `<app-name>`
-
-- Compiling and sending
+**Compiling and publishing the docker image** </br>
+a) Before running the command change the `<app-name>` </br>
+- Compiling and sending  </br>
 `heroku container:push web --app <app-name>`
 
 - Change to release
@@ -236,7 +235,7 @@ a) Before running the command change the `<app-name>`
 
 ![Heroku Apps](/images/heroku-04-run-dp-payment.png)
 
-**Optional steps to stop services or view processes**</br>
+**Optional steps to stop services or view processes** </br>
 a) Before running the command change the `<app-name>`</br>
 
 `heroku ps --app <app-name>` </br>
