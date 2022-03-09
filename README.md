@@ -32,64 +32,54 @@ b) Get the access credentials
 
 3) Go to [Confluent Cloud](https://www.confluent.io) and create a Kafka service
 
-- Create a free Kafka stream service
--  Add a topic named 'orderevents'
--  Add a topic named 'paymentevents'
+- Create a free Kafka stream service </br>
+-  Add a topic named 'orderevents' </br>
+-  Add a topic named 'paymentevents' </br>
 
 
-![Confluent Kafka](/images/heroku-02-kafka.png)
+![Confluent Kafka](/images/heroku-02-kafka.png) </br>
+-  Get access credentials to Confluent Cloud </br>
 
--  Get access credentials to Confluent Cloud
+4) Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and login `heroku container:login` </br>
 
-4) Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and login `heroku container:login`
+**Creating Microservices 'Order' using DevPrime CLI** </br>
 
-**Creating Microservices 'Order' using DevPrime CLI**
+We will use the [DevPrime CLI](../../../getting-started/creating-the-first-microservice/) for creating the microservices. </br>
 
-We will use the [DevPrime CLI](../../../getting-started/creating-the-first-microservice/) for creating the microservices.
+- Creating the microservice </br>
+`dp new dp-order --stream kafka --state mongodb` </br>
+Enter the dp-order folder to view the microservice</br> 
 
-- Creating the microservice
+- Adding business rules </br>
+`dp marketplace order` </br>
+- Speeding up implementations </br>
+`dp init` </br>
 
-`dp new dp-order --stream kafka --state mongodb`Enter the dp-order folder to view the microservice
+**Change the configurations by adding the MongoDB / Kafka credentials** </br>
 
-- Adding business rules
-
-`dp marketplace order`
-
-- Speeding up implementations
-
-`dp init`
-
-**Change the configurations by adding the MongoDB / Kafka credentials**
-
-a) In the project folder open the configuration file
-`code .\src\App\appsettings.json`
-
-b) In the State item add the MongoDB credentials
-
-c) In the Stream item add the Kafka credentials
+- In the project folder open the configuration file </br>
+`code .\src\App\appsettings.json` </br>
+- In the State item add the MongoDB credentials </br>
+- In the Stream item add the Kafka credentials </br>
 
 
 **Run Microservices locally.**
 
 `./run.ps1 or ./run.sh (Linux, MacOS)`
 
-**Make a test post**
+**Make a test post** </br>
+- Open the web browser at http://localhost:5000 or https://localhost:5001 </br>
+- Click post and then 'Try it out' </br>
+- Put in the data and submit </br>
 
-a) Open the web browser at http://localhost:5000 or https://localhost:5001
+If everything has gone well so far then you can proceed with the rest of the setup and publishing in the Heroku environment. </br>
 
-b) Click post and then 'Try it out'
+**Fitting the project dockerfile for Heroku support**</br>
 
-c) Put in the data and submit
-
-If everything has gone well so far then you can proceed with the rest of the setup and publishing in the Heroku environment.
-
-**Fitting the project dockerfile for Heroku support**
-
-a) Find and remove the line below 
-`ENTRYPOINT ["dotnet", "App.dll"]`
-
-b) Add the line below to the end 
-`CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll`
+- Find and remove the line below </br>
+`ENTRYPOINT ["dotnet", "App.dll"]`</br>
+- Add the line below to the end </br>
+`CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll`</br>
 
 
 **Export the settings**
@@ -213,8 +203,10 @@ public class OrderCreatedEventDTO
 </br>
 
 **Modify the configuration in the project dockerfile** </br>
-- Find and remove the line below `ENTRYPOINT ["dotnet", "App.dll"]` </br>
-- Add the line below `CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll` </br>
+- Find and remove the line below </br>
+`ENTRYPOINT ["dotnet", "App.dll"]` </br>
+- Add the line below </br>
+`CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll` </br>
 </br>
 
 **Export the settings** </br>
