@@ -231,14 +231,13 @@ a) Before running the command change the `<app-name>`
 
 ![Heroku Apps](/images/heroku-04-run-dp-payment.png)
 
-**Optional steps to stop services or view processes**
-a) Before running the command change the `<app-name>`
+**Optional steps to stop services or view processes**</br>
+a) Before running the command change the `<app-name>`</br>
 
 `heroku ps --app <app-name>` </br>
 `heroku ps:stop web.1 --app <app-name>`</br>
 `heroku ps:start web.1 --app <app-name>`</br>
 
-**Final considerations**
-
-- During this Heroku journey we have developed two microservices.
-- To automate in your devops strategy use GitHub Actions.
+**Final considerations**</br>
+- During this Heroku journey we have developed two microservices.</br>
+- To automate in your devops strategy use GitHub Actions.</br>
