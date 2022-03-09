@@ -234,9 +234,9 @@ a) Before running the command change the `<app-name>`
 **Optional steps to stop services or view processes**
 a) Before running the command change the `<app-name>`
 
-`heroku ps --app <app-name>`
-`heroku ps:stop web.1 --app <app-name>`
-`heroku ps:start web.1 --app <app-name>`
+`heroku ps --app <app-name>` </br>
+`heroku ps:stop web.1 --app <app-name>`</br>
+`heroku ps:start web.1 --app <app-name>`</br>
 
 **Final considerations**
 
