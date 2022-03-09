@@ -20,7 +20,7 @@ Heroku provides a cloud platform for publishing applications and we will be deve
 - Create a new application and save the name </br>
 - Create a second application and save the name </br>
 ![Heroku Apps](/images/heroku-01-app.png)</br>
-- Get the access token from["API KEY](https://dashboard.heroku.com/account)
+- Get the access token from "API KEY in [Heroku](https://dashboard.heroku.com/account) </br>
 `navigate to API Key`
 
 2) Access [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) </br>
