@@ -102,9 +102,9 @@ dp export heroku
 a) Locate and open the created file
 `code .\.devprime\heroku\instructions.txt`
 
-b) Locate the "<app-name>" tag and replace it with your app-name1 
+b) Locate the  `<app-name>` tag and replace it with your app-name1 
  
-c) Locate the "<app-name>" tag and replace it with the Heroku access token 
+c) Locate the  `<app-name>` tag and replace it with the Heroku access token 
  
 d) Now we will create the 'Config Vars' environment variables on Heroku
 
@@ -122,7 +122,7 @@ d) Now we will create the 'Config Vars' environment variables on Heroku
 
 **Compiling and publishing the docker image**
 
-a) Before running the command change the '<app-name>'
+a) Before running the command change the `<app-name>`
 
 - Compiling and sending
 `heroku container:push web --app <app-name>`
@@ -136,7 +136,7 @@ At this point you can already view the microservice in the portal![Heroku Apps](
 `heroku open`
 
 **Viewing the microservice log app-name1**
- a) Before running the command change the"<app-name>"
+ a) Before running the command change the  `<app-name>`
  `heroku logs --tail --app <app-name>`
 
 **Creating a new payment microservice'**
