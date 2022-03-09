@@ -168,9 +168,10 @@ c) In the State item add the MongoDB credentials d) In the Stream item add the K
 ```
 
 ***Receiving events in the Stream adapter***
-- Implementing an event in the Stream`dp add event OrderCreated -as PaymentService`
--  Change the DTO 'OrderCreatedEventDTO'
-`code .\src\CoreApplication\Services\Payment\Model\OrderCreatedEventDTO.cs`
+- Implementing an event in the Stream</br>
+`dp add event OrderCreated -as PaymentService`</br>
+-  Change the DTO 'OrderCreatedEventDTO'</br>
+`code .\src\CoreApplication\Services\Payment\Model\OrderCreatedEventDTO.cs`</br>
 
 ```csharp
 public class OrderCreatedEventDTO                     
