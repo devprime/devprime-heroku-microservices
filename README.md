@@ -161,26 +161,34 @@ heroku container:release web --app <app-name>
 At this point you can already view the microservice in the portal
 ![Heroku Apps](/images/heroku-04-run-dp-order.png)
 
-**Accessing the public url** </br>
-`heroku open` </br>
+## Accessing the public url
+```bash
+heroku open
+```
 
-**Viewing the microservice log app-name1** </br>
-Before running the command change the  `<app-name>` </br>
- `heroku logs --tail --app <app-name>` </br>
+## Viewing the microservice log app-name1
+Before running the command change the  `<app-name>` 
+ ```bash
+ heroku logs --tail --app <app-name>
+ ```
 
-**Creating a new payment microservice'** </br>
-The process below speeds up the creation and already runs the 'dp init' </br>
-`dp new dp-payment --state mongodb --stream kafka --marketplace payment --init` </br>
- At the end enter the dp-payment folder</br>
+## Creating a new payment microservice'
+The process below speeds up the creation and already runs the 'dp init' 
+```bash
+dp new dp-payment --state mongodb --stream kafka --marketplace payment --init
+``` 
+ At the end enter the dp-payment folder
 
-**Change the settings and credentials** </br>
-- In the project folder open the configuration file </br>
-`code .\src\App\appsettings.json`</br>
-- Change the ports in the DevPrime_Web item to ['https://localhost:5002;http://localhost:5003'](https://localhost:5002;http://localhost:5003)</br>
-- In the State item add the MongoDB credentials</br>
-- In the Stream item add the Kafka credentials</br>
-- Include in subscribe the queues 'orderevents'.</br>
-</br>
+## Change the settings and credentials
+- In the project folder open the configuration file 
+```bash
+code .\src\App\appsettings.json
+```
+- Change the ports in the DevPrime_Web item to ['https://localhost:5002;http://localhost:5003'](https://localhost:5002;http://localhost:5003)
+- In the State item add the MongoDB credentials
+- In the Stream item add the Kafka credentials
+- Include in subscribe the queues 'orderevents'.
+
 
 ```json
 "DevPrime_Stream": [
@@ -199,14 +207,18 @@ The process below speeds up the creation and already runs the 'dp init' </br>
     }
   ],
 ```
-</br>
 
-***Receiving events in the Stream adapter***</br>
-- Implementing an event in the Stream </br>
-`dp add event OrderCreated -as PaymentService` </br>
--  Change the DTO 'OrderCreatedEventDTO' </br>
-`code .\src\Core\Application\Services\Payment\Model\OrderCreatedEventDTO.cs` </br>
-</br>
+
+## Receiving events in the Stream adapter
+- Implementing an event in the Stream 
+```bash
+dp add event OrderCreated -as PaymentService
+```
+-  Change the DTO 'OrderCreatedEventDTO' 
+```bash
+code .\src\Core\Application\Services\Payment\Model\OrderCreatedEventDTO.cs
+``` 
+
 
 ```csharp
 public class OrderCreatedEventDTO                     
@@ -216,13 +228,15 @@ public class OrderCreatedEventDTO
     public double Value { get; set; }  
   }
 ```
-</br>
 
-***Configuring Subscribe in Stream*** </br>
-- Open the Event Stream configuration </br>
-`code .\src\Adapters\Stream\EventStream.cs` </br>
-- Change the implementation in Subscribe </br>
- </br>
+
+## Configuring Subscribe in Stream
+- Open the Event Stream configuration 
+```bash 
+code .\src\Adapters\Stream\EventStream.cs
+``` 
+- Change the implementation in Subscribe 
+ 
 
  ```csharp
     public override void StreamEvents()
@@ -241,47 +255,63 @@ public class OrderCreatedEventDTO
     }
 ```
 
-</br>
 
-**Modify the configuration in the project dockerfile** </br>
-- Find and remove the line below </br>
-`ENTRYPOINT ["dotnet", "App.dll"]` </br>
-- Add the line below </br>
-`CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll` </br>
-</br>
 
-**Export the settings** </br>
-Run to export settings </br>
-`dp export heroku` </br>
+## Modify the configuration in the project dockerfile
+- Find and remove the line below 
+```bash
+ENTRYPOINT ["dotnet", "App.dll"]
+```
+- Add the line below 
+```bash
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll
+``` 
 
-**Publishing the settings to Heroku** </br>
-- Locate and open the created file </br>
-`code .dp.devprimeherokuinstructions.txt` </br>
-- Locate the  `<app-name>` tag and replace it with your app-name2  </br>
-- Locate the  `<token>` tag and replace it with the Heroku access token  </br> 
-- Now we will create the 'Config Vars' environment variables on Heroku </br>
-- Copy the curl command and run it on the command line. </br>
-- Note the difference of curl in Windows Command, Powershell, Linux.</br>
+
+## Export the settings
+Run to export settings 
+```bash
+dp export heroku
+``` 
+
+## Publishing the settings to Heroku
+- Locate and open the created file 
+```bash 
+code .dp.devprimeherokuinstructions.txt
+``` 
+- Locate the  `<app-name>` tag and replace it with your app-name2  
+- Locate the  `<token>` tag and replace it with the Heroku access token   
+- Now we will create the 'Config Vars' environment variables on Heroku 
+- Copy the curl command and run it on the command line. 
+- Note the difference of curl in Windows Command, Powershell, Linux.
  
-`curl -X PATCH https://api.heroku.com/apps/<app-name>/config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer <token>" -d @.\.devprime\heroku\heroku.json`
+```bash
+curl -X PATCH https://api.heroku.com/apps/<app-name>/config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer <token>" -d @.\.devprime\heroku\heroku.json
+```
 
-</br>
 
-**Compiling and publishing the docker image** </br>
-a) Before running the command change the `<app-name>` </br>
-- Compiling and sending  </br>
-`heroku container:push web --app <app-name>` </br>
-- Change to release </br>
-`heroku container:release web --app <app-name>` </br>
-![Heroku Apps](/images/heroku-04-run-dp-payment.png)</br>
 
-**Optional steps to stop services or view processes** </br>
-a) Before running the command change the `<app-name>` </br>
+## Compiling and publishing the docker image
+a. Before running the command change the `<app-name>` 
+- Compiling and sending  
+```bash
+heroku container:push web --app <app-name>
+```
+- Change to release 
+```bash
+heroku container:release web --app <app-name>
+```
+![Heroku Apps](/images/heroku-04-run-dp-payment.png)
 
-`heroku ps --app <app-name>` </br>
-`heroku ps:stop web.1 --app <app-name>`</br>
-`heroku ps:start web.1 --app <app-name>`</br>
+## Optional steps to stop services or view processes
+a) Before running the command change the `<app-name>` 
 
-**Final considerations**</br>
-- During this Heroku journey we have developed two microservices.</br>
-- To automate in your devops strategy use GitHub Actions.</br>
+```bash
+heroku ps --app <app-name> 
+heroku ps:stop web.1 --app <app-name>
+heroku ps:start web.1 --app <app-name>
+```
+
+## Final considerations## 
+- During this Heroku journey we have developed two microservices.
+- To automate in your devops strategy use GitHub Actions.
