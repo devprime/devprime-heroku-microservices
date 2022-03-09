@@ -19,8 +19,9 @@ Heroku provides a cloud platform for publishing applications and we will be deve
 1) Log into [Heroku](http://heroku.com)
 - Create a new application and save the name 
 - Create a second application and save the name 
-![Heroku Apps](/images/heroku-01-app.png)
 - Get the access token from "API KEY" in [Heroku](https://dashboard.heroku.com/account)
+
+![Heroku Apps](/images/heroku-01-app.png)
 
 ```bash 
 navigate to API Key
