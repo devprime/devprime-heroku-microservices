@@ -6,7 +6,7 @@ Heroku provides a cloud platform for publishing applications and we will be deve
 
 - Install the .NET SDK 6 or higher / Visual Studio Code
 - A live [Heroku](https://heroku.com) account
-- An active [DevPrime](https:/devprime.io) account and Developer or Enterprise license
+- Create [DevPrime](https://devprime.io) account and use Developer or Enterprise license
 - A [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account
 - One account on [Confluent Cloud](https://www.confluent.io)
 - [DevPrime CLI](https://docs.devprime.tech/getting-started/) installed and active`(dp auth`)
