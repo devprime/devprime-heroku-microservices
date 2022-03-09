@@ -13,6 +13,21 @@ Heroku provides a cloud platform for publishing applications and we will be deve
 - [DevPrime CLI](../../../getting-started/) installed and active`(dp auth`)
 - Active local Docker + GIT
 - Powershell or Bash
+</br>
+
+
+**Important information:**</br>
+This article provides a complete example at the address below.</br>
+git clone https://github.com/devprime/dvprime-heroku-microservices</br>
+
+To use after cloning follow the steps:</br>
+- Enter the dp-order folder and type</br>
+'dp license'</br>
+- Enter the dp-payment folder and type</br>
+'dp license'</br>
+
+If you want, follow the steps below that we will do
+from beginning to end.</br>
 
 **Creating access and getting credentials**
 
