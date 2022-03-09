@@ -152,7 +152,7 @@ The process below speeds up the creation and already runs the 'dp init'
     }
   ],
 ```
-
+</br>
 
 ***Receiving events in the Stream adapter***</br>
 - Implementing an event in the Stream </br>
