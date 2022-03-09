@@ -277,7 +277,7 @@ dp export heroku
 ## Publishing the settings to Heroku
 - Locate and open the created file 
 ```bash 
-code .dp.devprimeherokuinstructions.txt
+code .\.devprime\heroku\instructions.txt
 ``` 
 - Locate the  `<app-name>` tag and replace it with your app-name2  
 - Locate the  `<token>` tag and replace it with the Heroku access token   
