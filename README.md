@@ -2,7 +2,7 @@
 
 Heroku provides a cloud platform for publishing applications and we will be developing two microservices using the DevPrime platform, MongoDB and Kafka and [asynchronous communication](https://docs.devprime.tech/how-to/asynchronous-microservices-communication/).
 
-**Items needed in your environment**
+## Items needed in your environment
 
 - Install the .NET SDK 6 or higher / Visual Studio Code
 - A live [Heroku](https://heroku.com) account
@@ -12,17 +12,19 @@ Heroku provides a cloud platform for publishing applications and we will be deve
 - [DevPrime CLI](https://docs.devprime.tech/getting-started/) installed and active`(dp auth`)
 - Active local Docker + GIT
 - Powershell or Bash
-</br>
 
 
-**Creating access and getting credentials**
+## Creating access and getting credentials**
 
-1) Log into [Heroku](http://heroku.com)</br>
-- Create a new application and save the name </br>
-- Create a second application and save the name </br>
-![Heroku Apps](/images/heroku-01-app.png)</br>
-- Get the access token from "API KEY" in [Heroku](https://dashboard.heroku.com/account) </br>
-`navigate to API Key`
+1) Log into [Heroku](http://heroku.com)
+- Create a new application and save the name 
+- Create a second application and save the name 
+![Heroku Apps](/images/heroku-01-app.png)
+- Get the access token from "API KEY" in [Heroku](https://dashboard.heroku.com/account)
+
+```bash 
+navigate to API Key
+```
 
 2) Access [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) </br>
 - Create a free mongodb database </br>
@@ -38,12 +40,14 @@ Heroku provides a cloud platform for publishing applications and we will be deve
 -  Get access credentials to Confluent Cloud </br>
 
 4) Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and login </br>
- `heroku container:login` </br>
+ ```bash
+ heroku container:login 
+```
 
  **Important information:** </br>
 This article provides a complete example at the address below. </br>
 ```bash
-git clone https://github.com/devprime/devprime-heroku-microservices </br>
+git clone https://github.com/devprime/devprime-heroku-microservices
 ```
 
 To use after cloning follow the steps: </br>
