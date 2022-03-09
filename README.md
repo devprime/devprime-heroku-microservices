@@ -62,80 +62,103 @@ dp license
 ```
 
 If you want, follow the steps below that we will do
-from beginning to end.</br>
+from beginning to end.
 
-**Creating Microservices 'Order' using DevPrime CLI** </br>
-We will use the [DevPrime CLI](https://docs.devprime.tech/getting-started/creating-the-first-microservice/) for creating the microservices. </br>
+## Creating Microservices 'Order' using DevPrime CLI 
+We will use the [DevPrime CLI](https://docs.devprime.tech/getting-started/creating-the-first-microservice/) for creating the microservices.
 
-- Creating the microservice </br>
-`dp new dp-order --stream kafka --state mongodb` </br>
-Enter the dp-order folder to view the microservice </br> 
+- Creating the microservice
+```bash 
+dp new dp-order --stream kafka --state mongodb
+```
+Enter the dp-order folder to view the microservice 
 
-- Adding business rules </br>
-`dp marketplace order` </br>
-- Speeding up implementations </br>
-`dp init` </br>
+- Adding business rules
+```bash 
+dp marketplace order
+```
+- Speeding up implementations 
+```bash 
+dp init
+```
 
-**Change the configurations by adding the MongoDB / Kafka credentials** </br>
+## Change the configurations by adding the MongoDB / Kafka credentials
 
-- In the project folder open the configuration file </br>
-`code .\src\App\appsettings.json` </br>
-- In the State item add the MongoDB credentials </br>
-- In the Stream item add the Kafka credentials </br>
-
-
-**Run Microservices locally**</br>
-`./run.ps1 or ./run.sh (Linux, MacOS)`</br>
-
-**Make a test post** </br>
-- Open the web browser at http://localhost:5000 or https://localhost:5001 </br>
-- Click post and then 'Try it out' </br>
-- Put in the data and submit </br>
-
-If everything has gone well so far then you can proceed with the rest of the setup and publishing in the Heroku environment. </br>
-
-**Fitting the project dockerfile for Heroku support**</br>
-
-- Find and remove the line below </br>
-`ENTRYPOINT ["dotnet", "App.dll"]`</br>
-- Add the line below to the end </br>
-`CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll`</br>
+- In the project folder open the configuration file
+```bash
+code .\src\App\appsettings.json
+```
+- In the State item add the MongoDB credentials
+- In the Stream item add the Kafka credentials 
 
 
-**Export the settings**</br>
-Run to export settings </br>
-`dp export heroku`</br>
+## Run Microservices locally
+```bash
+./run.ps1 or ./run.sh (Linux, MacOS)
+```
+
+## Make a test post
+- Open the web browser at http://localhost:5000 or https://localhost:5001 
+- Click post and then 'Try it out' 
+- Put in the data and submit 
+
+If everything has gone well so far then you can proceed with the rest of the setup and publishing in the Heroku environment.
+
+## Fitting the project dockerfile for Heroku support
+
+- Find and remove the line below 
+```bash 
+ENTRYPOINT ["dotnet", "App.dll"]
+```
+- Add the line below to the end 
+```bash 
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll
+```
+
+
+## Export the settings
+Run to export settings
+```bash 
+dp export heroku
+```
 
 ![Microservices devprime heroku](/images/devprime-cli-dp-export-heroku.png)
 
-**Publishing the settings to Heroku** </br>
-- Locate and open the created file </br>
-`code .\.devprime\heroku\instructions.txt` </br>
-- Locate the  `<app-name>` tag and replace it with your app-name1  </br>
-- Locate the  `<token>` tag and replace it with the Heroku access token  </br> 
-- Now we will create the 'Config Vars' environment variables on Heroku </br>
-- Copy the curl command and run it on the command line. </br>
-- Run it on the command line. </br>
+## Publishing the settings to Heroku
+- Locate and open the created file 
+```bash
+code .\.devprime\heroku\instructions.txt
+```
+- Locate the  `<app-name>` tag and replace it with your app-name1 
+- Locate the  `<token>` tag and replace it with the Heroku access token 
+- Now we will create the 'Config Vars' environment variables on Heroku 
+- Copy the curl command and run it on the command line. 
+- Run it on the command line.
 
-`curl -X PATCH https://api.heroku.com/apps/<app-name>/config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer <token>" -d @.\.devprime\heroku\heroku.json`
+```bash 
+curl -X PATCH https://api.heroku.com/apps/<app-name>/config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer <token>" -d @.\.devprime\heroku\heroku.json
+```
 
-</br>
 
-**Config Vars' settings of your app-name1 in the Heroku**</br>
+## Config Vars' settings of your app-name1 in the Heroku
 
-[Portal](https://heroku.com) -> App -> Settings -> Config Vars</br>
+[Portal](https://heroku.com) -> App -> Settings -> Config Vars
 
-![Config Vars](/images/heroku-03-configvars.png)</br>
+![Config Vars](/images/heroku-03-configvars.png)
 
-**Compiling and publishing the docker image**</br>
+## Compiling and publishing the docker image
 
-a) Before running the command change the `<app-name>`</br>
+a. Before running the command change the `<app-name>`
 - Compiling and sending
-`heroku container:push web --app <app-name>`</br>
-- Change to release</br>
-`heroku container:release web --app <app-name>`</br>
+```bash
+  heroku container:push web --app <app-name>
+```
+- Change to release
+```bash
+heroku container:release web --app <app-name>
+```
 
-At this point you can already view the microservice in the portal </br>
+At this point you can already view the microservice in the portal
 ![Heroku Apps](/images/heroku-04-run-dp-order.png)
 
 **Accessing the public url** </br>
