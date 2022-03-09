@@ -90,7 +90,7 @@ Run to export settings </br>
 - Locate the  `<app-name>` tag and replace it with your app-name1  </br>
 - Locate the  `<token>` tag and replace it with the Heroku access token  </br> 
 - Now we will create the 'Config Vars' environment variables on Heroku </br>
-- Copy the curl command in the one changed in the previous steps </br>
+- Copy the curl command and run it on the command line. </br>
 - Run it on the command line. </br>
 
 `curl -X PATCH https://api.heroku.com/apps/<app-name>/config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer <token>" -d @.\.devprime\heroku\heroku.json`
@@ -213,7 +213,7 @@ Run to export settings </br>
 - Locate the  `<app-name>` tag and replace it with your app-name2  </br>
 - Locate the  `<token>` tag and replace it with the Heroku access token  </br> 
 - Now we will create the 'Config Vars' environment variables on Heroku </br>
-- Copy the curl command in the one changed in the previous steps and run it on the command line. </br>
+- Copy the curl command and run it on the command line. </br>
 - Note the difference of curl in Windows Command, Powershell, Linux.</br>
  
 `curl -X PATCH https://api.heroku.com/apps/<app-name>/config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer <token>" -d @.\.devprime\heroku\heroku.json`
