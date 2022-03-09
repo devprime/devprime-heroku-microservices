@@ -44,17 +44,22 @@ navigate to API Key
  heroku container:login 
 ```
 
- **Important information:** </br>
-This article provides a complete example at the address below. </br>
+### Important information:
+This article provides a complete example at the address below. 
+
 ```bash
 git clone https://github.com/devprime/devprime-heroku-microservices
 ```
 
-To use after cloning follow the steps: </br>
-- Enter the dp-order folder and type </br>
-'dp license' </br>
-- Enter the dp-payment folder and type< /br>
-'dp license' </br>
+To use after cloning follow the steps:
+- Enter the dp-order folder and type
+```bash 
+dp license
+```
+- Enter the dp-payment folder and type
+```bash
+dp license 
+```
 
 If you want, follow the steps below that we will do
 from beginning to end.</br>
