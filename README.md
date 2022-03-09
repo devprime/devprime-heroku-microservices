@@ -14,9 +14,9 @@ Heroku provides a cloud platform for publishing applications and we will be deve
 - Powershell or Bash
 
 
-## Creating access and getting credentials**
+## Creating access and getting credentials
 
-1) Log into [Heroku](http://heroku.com)
+1. Log into [Heroku](http://heroku.com)
 - Create a new application and save the name 
 - Create a second application and save the name 
 - Get the access token from "API KEY" in [Heroku](https://dashboard.heroku.com/account)
@@ -27,20 +27,19 @@ Heroku provides a cloud platform for publishing applications and we will be deve
 navigate to API Key
 ```
 
-2) Access [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) </br>
-- Create a free mongodb database </br>
-- Get the access credentials</br>
+2. Access [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- Create a free mongodb database 
+- Get the access credentials
 
-3) Go to [Confluent Cloud](https://www.confluent.io) and create a Kafka service </br>
-- Create a free Kafka stream service </br>
-- Add a topic named 'orderevents' </br>
-- Add a topic named 'paymentevents' </br>
+3. Go to [Confluent Cloud](https://www.confluent.io) and create a Kafka service 
+- Create a free Kafka stream service 
+- Add a topic named 'orderevents'
+- Add a topic named 'paymentevents'
+-  Get access credentials to Confluent Cloud 
 
+![Confluent Kafka](/images/heroku-02-kafka.png)
 
-![Confluent Kafka](/images/heroku-02-kafka.png) </br>
--  Get access credentials to Confluent Cloud </br>
-
-4) Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and login </br>
+4. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and login 
  ```bash
  heroku container:login 
 ```
