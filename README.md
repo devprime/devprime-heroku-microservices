@@ -16,25 +16,21 @@ Heroku provides a cloud platform for publishing applications and we will be deve
 
 **Creating access and getting credentials**
 
-1) Log into [Heroku](http://heroku.com)
-
-- Create a new application and save the name .
-
-- Create a second application and save the name .
-
-![Heroku Apps](/images/heroku-01-app.png)
-
-- Get the access token from["API KEY](https://dashboard.heroku.com/account)`enter code here`
+1) Log into [Heroku](http://heroku.com)</br>
+- Create a new application and save the name </br>
+- Create a second application and save the name </br>
+![Heroku Apps](/images/heroku-01-app.png)</br>
+- Get the access token from["API KEY](https://dashboard.heroku.com/account)
+`navigate to API Key`
 
 2) Access [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) </br>
 - Create a free mongodb database </br>
 - Get the access credentials</br>
 
-3) Go to [Confluent Cloud](https://www.confluent.io) and create a Kafka service
-
+3) Go to [Confluent Cloud](https://www.confluent.io) and create a Kafka service </br>
 - Create a free Kafka stream service </br>
--  Add a topic named 'orderevents' </br>
--  Add a topic named 'paymentevents' </br>
+- Add a topic named 'orderevents' </br>
+- Add a topic named 'paymentevents' </br>
 
 
 ![Confluent Kafka](/images/heroku-02-kafka.png) </br>
@@ -64,9 +60,8 @@ Enter the dp-order folder to view the microservice</br>
 - In the Stream item add the Kafka credentials </br>
 
 
-**Run Microservices locally.**
-
-`./run.ps1 or ./run.sh (Linux, MacOS)`
+**Run Microservices locally**</br>
+`./run.ps1 or ./run.sh (Linux, MacOS)`</br>
 
 **Make a test post** </br>
 - Open the web browser at http://localhost:5000 or https://localhost:5001 </br>
@@ -83,26 +78,23 @@ If everything has gone well so far then you can proceed with the rest of the set
 `CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll`</br>
 
 
-**Export the settings**
-dp export heroku
+**Export the settings**</br>
+`dp export heroku`</br>
 
 ![Microservices devprime heroku](/images/devprime-cli-dp-export-heroku.png)
 
 **Publishing the settings to Heroku** </br>
-a) Locate and open the created file </br>
+- Locate and open the created file </br>
 `code .\.devprime\heroku\instructions.txt` </br>
-
-b) Locate the  `<app-name>` tag and replace it with your app-name1  </br>
- 
-c) Locate the  `<app-name>` tag and replace it with the Heroku access token  </br>
- 
-d) Now we will create the 'Config Vars' environment variables on Heroku </br>
-
-- Copy the curl command in the one changed in the previous steps 
-- Run it on the command line.
-- Note the difference of curl in Windows Command, Powershell, Linux.
+- Locate the  `<app-name>` tag and replace it with your app-name1  </br>
+- Locate the  `<app-name>` tag and replace it with the Heroku access token  </br> 
+- Now we will create the 'Config Vars' environment variables on Heroku </br>
+- Copy the curl command in the one changed in the previous steps </br>
+- Run it on the command line. </br>
 
 `curl -X PATCH https://api.heroku.com/apps/<app-name>/config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer <token>" -d @.\.devprime\heroku\heroku.json`
+
+</br>
 
 **Config Vars' settings of your app-name1 in the Heroku**</br>
 
