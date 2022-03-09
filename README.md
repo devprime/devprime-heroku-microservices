@@ -186,7 +186,7 @@ public class OrderCreatedEventDTO
 
 ***Configuring Subscribe in Stream*** </br>
 - Open the Event Stream configuration </br>
-`code .\src\Adapters\StreamEventStream.cs` </br>
+`code .\src\Adapters\Stream\EventStream.cs` </br>
 - Change the implementation in Subscribe </br>
  </br>
 
