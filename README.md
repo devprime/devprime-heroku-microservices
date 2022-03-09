@@ -121,10 +121,10 @@ At this point you can already view the microservice in the portal </br>
 Before running the command change the  `<app-name>` </br>
  `heroku logs --tail --app <app-name>` </br>
 
-**Creating a new payment microservice'**
-The process below speeds up the creation and already runs the 'dp init'
-`dp new dp-payment --state mongodb --stream kafka --marketplace payment --init`
- At the end enter the dp-payment folder
+**Creating a new payment microservice'** </br>
+The process below speeds up the creation and already runs the 'dp init' </br>
+`dp new dp-payment --state mongodb --stream kafka --marketplace payment --init` </br>
+ At the end enter the dp-payment folder</br>
 
 **Change the settings and credentials** </br>
 - In the project folder open the configuration file </br>
