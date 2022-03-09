@@ -87,18 +87,17 @@ dp export heroku
 
 ![Microservices devprime heroku](/images/devprime-cli-dp-export-heroku.png)
 
-**Publishing the settings to Heroku**
+**Publishing the settings to Heroku** </br>
+a) Locate and open the created file </br>
+`code .\.devprime\heroku\instructions.txt` </br>
 
-a) Locate and open the created file
-`code .\.devprime\heroku\instructions.txt`
-
-b) Locate the  `<app-name>` tag and replace it with your app-name1 
+b) Locate the  `<app-name>` tag and replace it with your app-name1  </br>
  
-c) Locate the  `<app-name>` tag and replace it with the Heroku access token 
+c) Locate the  `<app-name>` tag and replace it with the Heroku access token  </br>
  
-d) Now we will create the 'Config Vars' environment variables on Heroku
+d) Now we will create the 'Config Vars' environment variables on Heroku </br>
 
-- Copy the curl command in the one changed in the previous steps
+- Copy the curl command in the one changed in the previous steps 
 - Run it on the command line.
 - Note the difference of curl in Windows Command, Powershell, Linux.
 
@@ -160,11 +159,12 @@ The process below speeds up the creation and already runs the 'dp init'
   ],
 ```
 
+
 ***Receiving events in the Stream adapter***</br>
 - Implementing an event in the Stream </br>
 `dp add event OrderCreated -as PaymentService` </br>
 -  Change the DTO 'OrderCreatedEventDTO' </br>
-`code .\src\CoreApplication\Services\Payment\Model\OrderCreatedEventDTO.cs` </br>
+`code .\src\Core\Application\Services\Payment\Model\OrderCreatedEventDTO.cs` </br>
 </br>
 
 ```csharp
