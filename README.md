@@ -144,10 +144,14 @@ The process below speeds up the creation and already runs the 'dp init'
 `dp new dp-payment --state mongodb --stream kafka --marketplace payment --init`
  At the end enter the dp-payment folder
 
-Change**the settings and credentials**
-a) In the project folder open the configuration file`code .esrc\App\appsettings.json`
-b) Change the ports in the DevPrime_Web item to['https://localhost:5002;http://localhost:5003'](https://localhost:5002;http://localhost:5003)
-c) In the State item add the MongoDB credentials d) In the Stream item add the Kafka credentials e) Include in subscribe the queues 'orderevents'.
+**Change the settings and credentials** </br>
+a) In the project folder open the configuration file </br>
+`code .\src\App\appsettings.json`</br>
+b) Change the ports in the DevPrime_Web item to ['https://localhost:5002;http://localhost:5003'](https://localhost:5002;http://localhost:5003)</br>
+c) In the State item add the MongoDB credentials</br>
+d) In the Stream item add the Kafka credentials</br>
+e) Include in subscribe the queues 'orderevents'.</br>
+</br>
 
 ```json
 "DevPrime_Stream": [
@@ -167,11 +171,12 @@ c) In the State item add the MongoDB credentials d) In the Stream item add the K
   ],
 ```
 
-***Receiving events in the Stream adapter***
-- Implementing an event in the Stream</br>
-`dp add event OrderCreated -as PaymentService`</br>
--  Change the DTO 'OrderCreatedEventDTO'</br>
-`code .\src\CoreApplication\Services\Payment\Model\OrderCreatedEventDTO.cs`</br>
+***Receiving events in the Stream adapter***</br>
+- Implementing an event in the Stream </br>
+`dp add event OrderCreated -as PaymentService` </br>
+-  Change the DTO 'OrderCreatedEventDTO' </br>
+`code .\src\CoreApplication\Services\Payment\Model\OrderCreatedEventDTO.cs` </br>
+</br>
 
 ```csharp
 public class OrderCreatedEventDTO                     
@@ -181,11 +186,12 @@ public class OrderCreatedEventDTO
     public double Value { get; set; }  
   }
 ```
+</br>
 
-***Configuring Subscribe in Stream***</br>
-- Open the Event Stream configuration</br>
-`code .\src\Adapters\StreamEventStream.cs`</br>
-- Change the implementation in Subscribe</br>
+***Configuring Subscribe in Stream*** </br>
+- Open the Event Stream configuration </br>
+`code .\src\Adapters\StreamEventStream.cs` </br>
+- Change the implementation in Subscribe </br>
  </br>
 
  ```csharp
@@ -205,38 +211,39 @@ public class OrderCreatedEventDTO
     }
 ```
 
+</br>
 
+**Modify the configuration in the project dockerfile** </br>
+- Find and remove the line below `ENTRYPOINT ["dotnet", "App.dll"]` </br>
+- Add the line below `CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll` </br>
+</br>
 
-**Modify the configuration in the project dockerfile**
-- Find and remove the line below `ENTRYPOINT ["dotnet", "App.dll"]`
-- Add the line below `CMD ASPNETCORE_URLS=http://*:$PORT dotnet App.dll`
+**Export the settings** </br>
+`dp export heroku` </br>
 
-**Export the settings**
-`dp export heroku`
-
-**Publishing the settings to Heroku**
-- Locate and open the created file`code .dp.devprimeherokuinstructions.txt`
-- Locate the ``tag and replace it with your app-name2
-- Locate the ``tag and replace it with the Heroku access token
-- Now we will create the 'Config Vars' environment variables on Heroku
-
-- Copy the curl command in the one changed in the previous steps and run it on the command line.
-- Note the difference of curl in Windows Command, Powershell, Linux.
+**Publishing the settings to Heroku** </br>
+- Locate and open the created file </br>
+`code .dp.devprimeherokuinstructions.txt` </br>
+- Locate the ``tag and replace it with your app-name2 </br>
+- Locate the ``tag and replace it with the Heroku access token </br>
+- Now we will create the 'Config Vars' environment variables on Heroku </br>
+- Copy the curl command in the one changed in the previous steps and run it on the command line. </br>
+- Note the difference of curl in Windows Command, Powershell, Linux.</br>
  
 `curl -X PATCH https://api.heroku.com/apps/<app-name>/config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer <token>" -d @.\.devprime\heroku\heroku.json`
+
+</br>
 
 **Compiling and publishing the docker image** </br>
 a) Before running the command change the `<app-name>` </br>
 - Compiling and sending  </br>
-`heroku container:push web --app <app-name>`
-
-- Change to release
-`heroku container:release web --app <app-name>`
-
-![Heroku Apps](/images/heroku-04-run-dp-payment.png)
+`heroku container:push web --app <app-name>` </br>
+- Change to release </br>
+`heroku container:release web --app <app-name>` </br>
+![Heroku Apps](/images/heroku-04-run-dp-payment.png)</br>
 
 **Optional steps to stop services or view processes** </br>
-a) Before running the command change the `<app-name>`</br>
+a) Before running the command change the `<app-name>` </br>
 
 `heroku ps --app <app-name>` </br>
 `heroku ps:stop web.1 --app <app-name>`</br>
