@@ -114,30 +114,29 @@ d) Now we will create the 'Config Vars' environment variables on Heroku
 
 `curl -X PATCH https://api.heroku.com/apps/<app-name>/config-vars -H "Content-Type: application/json" -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer <token>" -d @.\.devprime\heroku\heroku.json`
 
-**Config Vars' settings of your app-name1 in the Heroku**
+**Config Vars' settings of your app-name1 in the Heroku**</br>
 
-[Portal](https://heroku.com) -> App -> Settings -> Config Vars
+[Portal](https://heroku.com) -> App -> Settings -> Config Vars</br>
 
-![Config Vars](/images/heroku-03-configvars.png)
+![Config Vars](/images/heroku-03-configvars.png)</br>
 
-**Compiling and publishing the docker image**
+**Compiling and publishing the docker image**</br>
 
-a) Before running the command change the `<app-name>`
-
+a) Before running the command change the `<app-name>`</br>
 - Compiling and sending
-`heroku container:push web --app <app-name>`
+`heroku container:push web --app <app-name>`</br>
+- Change to release</br>
+`heroku container:release web --app <app-name>`</br>
 
-- Change to release
-`heroku container:release web --app <app-name>`
+At this point you can already view the microservice in the portal </br>
+![Heroku Apps](/images/heroku-04-run-dp-order.png)
 
-At this point you can already view the microservice in the portal![Heroku Apps](/images/heroku-04-run-dp-order.png)
+**Accessing the public url** </br>
+`heroku open` </br>
 
-**Accessing the public url**
-`heroku open`
-
-**Viewing the microservice log app-name1**
- a) Before running the command change the  `<app-name>`
- `heroku logs --tail --app <app-name>`
+**Viewing the microservice log app-name1** </br>
+Before running the command change the  `<app-name>` </br>
+ `heroku logs --tail --app <app-name>` </br>
 
 **Creating a new payment microservice'**
 The process below speeds up the creation and already runs the 'dp init'
@@ -145,12 +144,12 @@ The process below speeds up the creation and already runs the 'dp init'
  At the end enter the dp-payment folder
 
 **Change the settings and credentials** </br>
-a) In the project folder open the configuration file </br>
+- In the project folder open the configuration file </br>
 `code .\src\App\appsettings.json`</br>
-b) Change the ports in the DevPrime_Web item to ['https://localhost:5002;http://localhost:5003'](https://localhost:5002;http://localhost:5003)</br>
-c) In the State item add the MongoDB credentials</br>
-d) In the Stream item add the Kafka credentials</br>
-e) Include in subscribe the queues 'orderevents'.</br>
+- Change the ports in the DevPrime_Web item to ['https://localhost:5002;http://localhost:5003'](https://localhost:5002;http://localhost:5003)</br>
+- In the State item add the MongoDB credentials</br>
+- In the Stream item add the Kafka credentials</br>
+- Include in subscribe the queues 'orderevents'.</br>
 </br>
 
 ```json
