@@ -40,15 +40,15 @@ Heroku provides a cloud platform for publishing applications and we will be deve
 4) Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and login </br>
  `heroku container:login` </br>
 
- **Important information:**</br>
-This article provides a complete example at the address below.</br>
-git clone https://github.com/devprime/devprime-heroku-microservices</br>
+ **Important information:** </br>
+This article provides a complete example at the address below. </br>
+`git clone https://github.com/devprime/devprime-heroku-microservices` </br>
 
-To use after cloning follow the steps:</br>
-- Enter the dp-order folder and type</br>
-'dp license'</br>
-- Enter the dp-payment folder and type</br>
-'dp license'</br>
+To use after cloning follow the steps: </br>
+- Enter the dp-order folder and type </br>
+'dp license' </br>
+- Enter the dp-payment folder and type< /br>
+'dp license' </br>
 
 If you want, follow the steps below that we will do
 from beginning to end.</br>
@@ -58,7 +58,7 @@ We will use the [DevPrime CLI](https://docs.devprime.tech/getting-started/creati
 
 - Creating the microservice </br>
 `dp new dp-order --stream kafka --state mongodb` </br>
-Enter the dp-order folder to view the microservice</br> 
+Enter the dp-order folder to view the microservice </br> 
 
 - Adding business rules </br>
 `dp marketplace order` </br>
