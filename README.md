@@ -181,10 +181,11 @@ public class OrderCreatedEventDTO
   }
 ```
 
-***Configuring Subscribe in Stream***
-- Open the Event Stream configuration`code .\src\Adapters\StreamEventStream.cs`
-- Change the implementation in Subscribe
- 
+***Configuring Subscribe in Stream***</br>
+- Open the Event Stream configuration</br>
+`code .\src\Adapters\StreamEventStream.cs`</br>
+- Change the implementation in Subscribe</br>
+ </br>
  ```csharp
     public override void StreamEvents()
     {
