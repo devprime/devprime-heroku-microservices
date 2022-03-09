@@ -186,6 +186,7 @@ public class OrderCreatedEventDTO
 `code .\src\Adapters\StreamEventStream.cs`</br>
 - Change the implementation in Subscribe</br>
  </br>
+
  ```csharp
     public override void StreamEvents()
     {
@@ -202,6 +203,8 @@ public class OrderCreatedEventDTO
         });
     }
 ```
+
+
 
 **Modify the configuration in the project dockerfile**
 - Find and remove the line below `ENTRYPOINT ["dotnet", "App.dll"]`
