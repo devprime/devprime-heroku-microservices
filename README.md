@@ -20,7 +20,7 @@ Heroku provides a cloud platform for publishing applications and we will be deve
 - Create a new application and save the name </br>
 - Create a second application and save the name </br>
 ![Heroku Apps](/images/heroku-01-app.png)</br>
-- Get the access token from "API KEY in [Heroku](https://dashboard.heroku.com/account) </br>
+- Get the access token from "API KEY" in [Heroku](https://dashboard.heroku.com/account) </br>
 `navigate to API Key`
 
 2) Access [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) </br>
@@ -79,6 +79,7 @@ If everything has gone well so far then you can proceed with the rest of the set
 
 
 **Export the settings**</br>
+Run to export settings </br>
 `dp export heroku`</br>
 
 ![Microservices devprime heroku](/images/devprime-cli-dp-export-heroku.png)
@@ -87,7 +88,7 @@ If everything has gone well so far then you can proceed with the rest of the set
 - Locate and open the created file </br>
 `code .\.devprime\heroku\instructions.txt` </br>
 - Locate the  `<app-name>` tag and replace it with your app-name1  </br>
-- Locate the  `<app-name>` tag and replace it with the Heroku access token  </br> 
+- Locate the  `<token>` tag and replace it with the Heroku access token  </br> 
 - Now we will create the 'Config Vars' environment variables on Heroku </br>
 - Copy the curl command in the one changed in the previous steps </br>
 - Run it on the command line. </br>
@@ -203,13 +204,14 @@ public class OrderCreatedEventDTO
 </br>
 
 **Export the settings** </br>
+Run to export settings </br>
 `dp export heroku` </br>
 
 **Publishing the settings to Heroku** </br>
 - Locate and open the created file </br>
 `code .dp.devprimeherokuinstructions.txt` </br>
-- Locate the ``tag and replace it with your app-name2 </br>
-- Locate the ``tag and replace it with the Heroku access token </br>
+- Locate the  `<app-name>` tag and replace it with your app-name2  </br>
+- Locate the  `<token>` tag and replace it with the Heroku access token  </br> 
 - Now we will create the 'Config Vars' environment variables on Heroku </br>
 - Copy the curl command in the one changed in the previous steps and run it on the command line. </br>
 - Note the difference of curl in Windows Command, Powershell, Linux.</br>
