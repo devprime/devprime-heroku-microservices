@@ -222,7 +222,7 @@ Run to export settings </br>
 
 **Publishing the settings to Heroku** </br>
 - Locate and open the created file </br>
-`code .dp.devprimeherokuinstructions.txt` </br>
+`code .\.devprime\heroku\instructions.txt` </br>
 - Locate the  `<app-name>` tag and replace it with your app-name2  </br>
 - Locate the  `<token>` tag and replace it with the Heroku access token  </br> 
 - Now we will create the 'Config Vars' environment variables on Heroku </br>
