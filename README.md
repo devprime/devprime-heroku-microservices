@@ -1,16 +1,15 @@
 # Microservices on Heroku using DevPrime, MongoDB Atlas and Confluent Cloud Kafka
 
-Heroku provides a cloud platform for publishing applications and we will be developing two microservices using the DevPrime platform, MongoDB and Kafka and [asynchronous communication](../../how-to/asynchronous-microservices-communication/).
+Heroku provides a cloud platform for publishing applications and we will be developing two microservices using the DevPrime platform, MongoDB and Kafka and [asynchronous communication](https://docs.devprime.tech/how-to/asynchronous-microservices-communication/).
 
 **Items needed in your environment**
 
-- Install the .NET SDK 6 or higher
-- Visual Studio Code
-- A live [Heroku](https://heroku.com)account
+- Install the .NET SDK 6 or higher / Visual Studio Code
+- A live [Heroku](https://heroku.com) account
 - An active [DevPrime](https:/devprime.io) account and Developer or Enterprise license
-- A [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)account
+- A [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account
 - One account on [Confluent Cloud](https://www.confluent.io)
-- [DevPrime CLI](../../../getting-started/) installed and active`(dp auth`)
+- [DevPrime CLI](https://docs.devprime.tech/getting-started/) installed and active`(dp auth`)
 - Active local Docker + GIT
 - Powershell or Bash
 </br>
@@ -55,7 +54,7 @@ If you want, follow the steps below that we will do
 from beginning to end.</br>
 
 **Creating Microservices 'Order' using DevPrime CLI** </br>
-We will use the [DevPrime CLI](../../../getting-started/creating-the-first-microservice/) for creating the microservices. </br>
+We will use the [DevPrime CLI](https://docs.devprime.tech/getting-started/creating-the-first-microservice/) for creating the microservices. </br>
 
 - Creating the microservice </br>
 `dp new dp-order --stream kafka --state mongodb` </br>
