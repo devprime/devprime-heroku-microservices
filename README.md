@@ -18,17 +18,17 @@ Heroku provides a cloud platform for publishing applications and we will be deve
 
 1) Log into [Heroku](http://heroku.com)
 
-a) Create a new application and save the name .
+- Create a new application and save the name .
 
-b) Create a second application and save the name .
+- Create a second application and save the name .
 
 ![Heroku Apps](/images/heroku-01-app.png)
 
-c) Get the access token from["API KEY](https://dashboard.heroku.com/account)`enter code here`
+- Get the access token from["API KEY](https://dashboard.heroku.com/account)`enter code here`
 
-2) Access [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) 
-a) Create a free mongodb database  
-b) Get the access credentials
+2) Access [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) </br>
+- Create a free mongodb database </br>
+- Get the access credentials</br>
 
 3) Go to [Confluent Cloud](https://www.confluent.io) and create a Kafka service
 
@@ -40,7 +40,8 @@ b) Get the access credentials
 ![Confluent Kafka](/images/heroku-02-kafka.png) </br>
 -  Get access credentials to Confluent Cloud </br>
 
-4) Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and login `heroku container:login` </br>
+4) Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and login </br>
+ `heroku container:login` </br>
 
 **Creating Microservices 'Order' using DevPrime CLI** </br>
 
