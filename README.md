@@ -16,19 +16,6 @@ Heroku provides a cloud platform for publishing applications and we will be deve
 </br>
 
 
-**Important information:**</br>
-This article provides a complete example at the address below.</br>
-git clone https://github.com/devprime/dvprime-heroku-microservices</br>
-
-To use after cloning follow the steps:</br>
-- Enter the dp-order folder and type</br>
-'dp license'</br>
-- Enter the dp-payment folder and type</br>
-'dp license'</br>
-
-If you want, follow the steps below that we will do
-from beginning to end.</br>
-
 **Creating access and getting credentials**
 
 1) Log into [Heroku](http://heroku.com)</br>
@@ -54,8 +41,20 @@ from beginning to end.</br>
 4) Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and login </br>
  `heroku container:login` </br>
 
-**Creating Microservices 'Order' using DevPrime CLI** </br>
+ **Important information:**</br>
+This article provides a complete example at the address below.</br>
+git clone https://github.com/devprime/dvprime-heroku-microservices</br>
 
+To use after cloning follow the steps:</br>
+- Enter the dp-order folder and type</br>
+'dp license'</br>
+- Enter the dp-payment folder and type</br>
+'dp license'</br>
+
+If you want, follow the steps below that we will do
+from beginning to end.</br>
+
+**Creating Microservices 'Order' using DevPrime CLI** </br>
 We will use the [DevPrime CLI](../../../getting-started/creating-the-first-microservice/) for creating the microservices. </br>
 
 - Creating the microservice </br>
