@@ -314,4 +314,9 @@ heroku ps:start web.1 --app <app-name>
 
 ## Final considerations## 
 - During this Heroku journey we have developed two microservices.
-- To automate in your devops strategy use GitHub Actions.
+- To automate in your devops strategy use GitHub Actions.   
+
+
+**Trademarks**
+- This project may contain trademarks or logos for projects, products, or services
+- This sample code is proprietary to devprime 
